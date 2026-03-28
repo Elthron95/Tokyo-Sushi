@@ -760,6 +760,65 @@ button {
   border: none;
 }
 
+/* Desktop: mostra iframe, nascondi CTA mobile */
+.gloriafood-desktop { display: block; }
+.gloriafood-mobile  { display: none; }
+
+/* Mobile CTA card */
+.reservation-cta-card {
+  background: var(--sumi-900);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reservation-cta-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+.reservation-cta-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 4vw, 1.6rem);
+  color: var(--washi-100);
+  font-weight: 700;
+  margin: 0;
+}
+
+.reservation-cta-text {
+  font-size: 0.95rem;
+  color: var(--yanagi-500);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.reservation-cta-btn {
+  width: auto;
+  min-width: 180px;
+  max-width: 100%;
+  text-align: center;
+  padding: 1rem 2.5rem;
+  font-size: 1.05rem;
+  white-space: nowrap;
+}
+
+.reservation-cta-note {
+  font-size: 0.75rem;
+  color: var(--yanagi-700);
+  margin: 0;
+}
+
+/* ── Breakpoint: sotto 768px inverti la visibilità ─────── */
+@media (max-width: 768px) {
+  .gloriafood-desktop { display: none; }
+  .gloriafood-mobile  { display: block; }
+}
+
 /* ── CONTATTI & FOOTER ────────────────────────────────────── */
 .contacts {
   background: var(--washi-100);
