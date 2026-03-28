@@ -1038,31 +1038,47 @@ button {
   .pricing-cards { grid-template-columns: 1fr; }
   .experience-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .contacts-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  
+  /* Form fixed to 1 col earlier for better UX */
+  .reservation-form { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
   :root {
-    --space-xl: 4.5rem;
-    --space-lg: 3rem;
+    --space-xl: 4rem;
+    --space-lg: 2.5rem;
   }
 
+  /* Increase logo size on mobile or keep height consistent */
+  .logo-svg { height: 48px; }
+
+  .hero h1 { font-size: 2.2rem; }
+  .hero-ctas { flex-direction: column; width: 100%; gap: 0.75rem; }
+  .hero-ctas .btn { width: 100%; text-align: center; }
+
   .hero-badge {
-    left: var(--space-sm);
-    right: var(--space-sm);
+    left: 1rem;
+    right: 1rem;
     bottom: 1.5rem;
     text-align: center;
+    font-size: 0.7rem;
   }
 
   .menu-header { flex-direction: column; align-items: flex-start; }
 
-  .delivery-blocks { gap: 2rem; }
+  .delivery-blocks { flex-direction: column; align-items: center; gap: 2.5rem; }
+  .delivery-block { max-width: 100%; width: 100%; }
 
-  .footer-bar-inner { flex-direction: column; align-items: flex-start; }
+  .footer-bar-inner { flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+  .footer-links { justify-content: center; }
 
   /* WhatsApp FAB: nascondi label su schermi piccoli */
   .whatsapp-fab-label { display: none; }
-  .whatsapp-fab { border-radius: 50%; padding: 0; width: 58px; height: 58px; justify-content: center; }
-  .whatsapp-fab svg { width: 30px; height: 30px; }
+  .whatsapp-fab { border-radius: 50%; padding: 0; width: 56px; height: 56px; justify-content: center; bottom: 1.25rem; right: 1.25rem; }
+  .whatsapp-fab svg { width: 28px; height: 28px; }
+
+  /* Correzione overflow orizzontale */
+  .container { width: calc(100% - 2.5rem); }
 }
 
 /* ── SCROLL ANIMATION (fade-up) ──────────────────────────── */
