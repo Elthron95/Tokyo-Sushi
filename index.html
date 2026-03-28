@@ -271,68 +271,19 @@
       <div class="container reservations-inner">
 
         <h2 class="section-title" id="reservations-heading">Prenota un tavolo</h2>
-        <p class="reservations-sub">Compila il modulo e ti riconfermiamo entro breve.</p>
+        <p class="reservations-sub">Scegli data, orario e numero di persone. La conferma arriva direttamente sul tuo telefono.</p>
 
-
-        <!-- Native Form styled like the site, submitting to Google Forms -->
-        <form class="reservation-form" id="reservation-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeUN_23WHYuSlTvNjjouOYEGv2ynnp6dQNFe9y_xSIxaAcNuQ/formResponse" method="POST" target="hidden_iframe">
-          <!-- Email -->
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="emailAddress" placeholder="tua@email.com" required>
-          </div>
-          
-          <!-- Nome e Cognome -->
-          <div class="form-group">
-            <label for="nome">Nome e Cognome</label>
-            <input type="text" id="nome" name="entry.2019563438" placeholder="Mario Rossi" required>
-          </div>
-          
-          <!-- Telefono -->
-          <div class="form-group">
-            <label for="telefono">Numero di Telefono</label>
-            <input type="tel" id="telefono" name="entry.1224036341" placeholder="+39 333 000 0000" required>
-          </div>
-          
-          <!-- Data -->
-          <div class="form-group">
-            <label for="data">Data</label>
-            <input type="date" id="data" name="entry.146428787" required>
-          </div>
-          
-          <!-- Ora -->
-          <div class="form-group">
-            <label for="ora">Ora</label>
-            <input type="time" id="ora" name="entry.1810599303" required>
-          </div>
-          
-          <!-- Persone -->
-          <div class="form-group">
-            <label for="persone">Numero di Persone</label>
-            <input type="number" id="persone" name="entry.404001461" min="1" placeholder="Es. 2" required>
-          </div>
-          
-          <!-- Intolleranze -->
-          <div class="form-group form-group--full">
-            <label for="intolleranze">Intolleranze (facoltativo)</label>
-            <textarea id="intolleranze" name="entry.460122780" placeholder="Segnala eventuali allergie o intolleranze..."></textarea>
-          </div>
-          
-          <!-- Submit -->
-          <div class="form-submit-wrap">
-            <button type="submit" class="btn btn--primary" id="submit-btn">Prenota ora</button>
-            <p class="form-phone-note">
-              Oppure chiamaci:
-              <a href="tel:09841452953" aria-label="Chiama il ristorante">0984 145 2953</a>
-            </p>
-          </div>
-        </form>
-        
-        <!-- Hidden iframe to handle Google Form submit without page redirect -->
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { showSuccess(); }"></iframe>
-
-        <div class="form-success" id="form-success" role="status" aria-live="polite">
-          ✓ &nbsp; Prenotazione inviata! Ti contatteremo a breve per confermare il tavolo.
+        <!-- GloriaFood reservation iframe -->
+        <div class="gloriafood-wrap">
+          <iframe
+            src="https://www.foodbooking.com/ordering/restaurant/menu/reservation?company_uid=4b3ac61d-df91-4e8d-b393-2f9b0df14fab&restaurant_uid=4c68baf9-4dd0-4f82-893c-68b9b0e6081c&reservation=true"
+            width="100%"
+            height="700px"
+            frameborder="0"
+            style="border:none; min-height:700px;"
+            title="Modulo di prenotazione GloriaFood — Tokyo Sushi Cosenza"
+            loading="lazy"
+          ></iframe>
         </div>
 
 
