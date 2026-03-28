@@ -87,114 +87,33 @@
     fadeEls.forEach(el => el.classList.add('visible'));
   }
 
-  /* ── Form Validation ─────────────────────────────────────── */
+  /* ── Form Handling (Google Forms integration) ────────────── */
+  window.submitted = false;
+  
+  window.showSuccess = function() {
+    const form = document.getElementById('reservation-form');
+    const successMsg = document.getElementById('form-success');
+    if (form && successMsg) {
+      form.style.display = 'none';
+      successMsg.classList.add('visible');
+    }
+  };
+
   const form = document.getElementById('reservation-form');
   if (form) {
-    const successMsg = document.getElementById('form-success');
-
-    function getField(name) {
-      return form.querySelector(`[name="${name}"]`);
-    }
-
-    function showError(field, errorId) {
-      field.classList.add('error');
-      const errEl = document.getElementById(errorId);
-      if (errEl) errEl.classList.add('visible');
-    }
-
-    function clearError(field, errorId) {
-      field.classList.remove('error');
-      const errEl = document.getElementById(errorId);
-      if (errEl) errEl.classList.remove('visible');
-    }
-
-    function isValidPhone(phone) {
-      // Accept Italian-style phone numbers: optional +39, 8-15 digits
-      return /^(\+39\s?)?[\d\s\-]{8,15}$/.test(phone.trim());
-    }
-
-    function isValidDate(dateStr) {
-      if (!dateStr) return false;
-      const d = new Date(dateStr);
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      return d instanceof Date && !isNaN(d) && d >= today;
-    }
-
-    // Live clear on input
-    form.querySelectorAll('input, select, textarea').forEach(field => {
-      field.addEventListener('input', function () {
-        if (this.value.trim() !== '') {
-          this.classList.remove('error');
-          const errEl = document.getElementById(this.name + '-error');
-          if (errEl) errEl.classList.remove('visible');
-        }
-      });
-    });
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      let valid = true;
-
-      const nome = getField('nome');
-      const telefono = getField('telefono');
-      const data = getField('data');
-      const ora = getField('ora');
-      const persone = getField('persone');
-
-      // Reset all errors
-      ['nome', 'telefono', 'data', 'ora', 'persone'].forEach(name => {
-        const f = getField(name);
-        if (f) clearError(f, name + '-error');
-      });
-
-      // Nome
-      if (!nome || nome.value.trim().length < 2) {
-        showError(nome, 'nome-error');
-        valid = false;
-      }
-
-      // Telefono
-      if (!telefono || !isValidPhone(telefono.value)) {
-        showError(telefono, 'telefono-error');
-        valid = false;
-      }
-
-      // Data
-      if (!data || !isValidDate(data.value)) {
-        showError(data, 'data-error');
-        valid = false;
-      }
-
-      // Ora
-      if (!ora || ora.value === '') {
-        showError(ora, 'ora-error');
-        valid = false;
-      }
-
-      // Persone
-      if (!persone || persone.value === '') {
-        showError(persone, 'persone-error');
-        valid = false;
-      }
-
-      if (valid) {
-        // Simulate success (no backend)
-        form.style.opacity = '0.5';
-        form.style.pointerEvents = 'none';
-        if (successMsg) successMsg.classList.add('visible');
-        setTimeout(() => {
-          form.reset();
-          form.style.opacity = '';
-          form.style.pointerEvents = '';
-          if (successMsg) successMsg.classList.remove('visible');
-        }, 4000);
+    form.addEventListener('submit', function() {
+      window.submitted = true;
+      // Optional: change button text to show loading
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) {
+        btn.textContent = 'Invio in corso...';
+        btn.disabled = true;
       }
     });
   }
 
   /* ── Set min date for date picker to today ───────────────── */
-  const dateInput = document.querySelector('[name="data"]');
+  const dateInput = document.querySelector('input[type="date"]');
   if (dateInput) {
     const today = new Date().toISOString().split('T')[0];
     dateInput.setAttribute('min', today);

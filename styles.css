@@ -194,35 +194,13 @@ button {
 
 .logo-svg {
   flex-shrink: 0;
-  width: 100px;
-  height: 50px;
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
-/* The SVG wave stroke needs to be light on dark header */
-.logo-svg path { stroke: var(--washi-100); }
 
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.logo-wordmark {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--washi-100);
-  letter-spacing: 0.02em;
-}
-
-.logo-sub {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 0.65rem;
-  letter-spacing: 4px;
-  color: var(--yanagi-500);
-  text-transform: uppercase;
-}
 
 /* Primary nav */
 .primary-nav {
@@ -1079,9 +1057,12 @@ button {
 
   .delivery-blocks { gap: 2rem; }
 
-  .reservation-form { grid-template-columns: 1fr; }
-
   .footer-bar-inner { flex-direction: column; align-items: flex-start; }
+
+  /* WhatsApp FAB: nascondi label su schermi piccoli */
+  .whatsapp-fab-label { display: none; }
+  .whatsapp-fab { border-radius: 50%; padding: 0; width: 58px; height: 58px; justify-content: center; }
+  .whatsapp-fab svg { width: 30px; height: 30px; }
 }
 
 /* ── SCROLL ANIMATION (fade-up) ──────────────────────────── */
@@ -1094,4 +1075,64 @@ button {
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ── GOOGLE FORMS EMBED ──────────────────────────────────── */
+.gform-wrap {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+.gform-wrap iframe {
+  display: block;
+  border: 0;
+  width: 100%;
+}
+
+/* ── WHATSAPP FLOATING BUTTON ────────────────────────────── */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #25D366;
+  color: #fff;
+  padding: 0.8rem 1.3rem 0.8rem 1rem;
+  border-radius: 50px;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0,0,0,0.18);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+  animation: whatsapp-pulse 2.8s ease-in-out infinite;
+}
+
+.whatsapp-fab:hover {
+  background: #1ebe5d;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 32px rgba(37, 211, 102, 0.55), 0 4px 12px rgba(0,0,0,0.2);
+  animation: none;
+}
+
+.whatsapp-fab svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.whatsapp-fab-label {
+  white-space: nowrap;
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0,0,0,0.18); }
+  50%       { box-shadow: 0 6px 32px rgba(37, 211, 102, 0.7),  0 2px 8px rgba(0,0,0,0.18); }
 }

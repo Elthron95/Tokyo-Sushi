@@ -28,16 +28,11 @@
       <!-- Logo -->
       <a href="#" class="logo-wrap" aria-label="Tokyo Sushi Cosenza — homepage">
         <img
-          src="assets/logo.svg"
-          alt="Tokyo Sushi Cosenza logo — wave brushstroke and wax seal"
+          src="Logo sushi.png"
+          alt="Tokyo Sushi Cosenza logo"
           class="logo-svg"
-          width="100"
-          height="50"
+          height="56"
         />
-        <div class="logo-text">
-          <span class="logo-wordmark">Tokyo Sushi</span>
-          <span class="logo-sub">Cosenza</span>
-        </div>
       </a>
 
       <!-- Desktop nav -->
@@ -278,126 +273,68 @@
         <h2 class="section-title" id="reservations-heading">Prenota un tavolo</h2>
         <p class="reservations-sub">Compila il modulo e ti riconfermiamo entro breve.</p>
 
-        <form
-          class="reservation-form"
-          id="reservation-form"
-          novalidate
-          aria-label="Modulo di prenotazione"
-        >
 
-          <!-- Nome -->
+        <!-- Native Form styled like the site, submitting to Google Forms -->
+        <form class="reservation-form" id="reservation-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeUN_23WHYuSlTvNjjouOYEGv2ynnp6dQNFe9y_xSIxaAcNuQ/formResponse" method="POST" target="hidden_iframe">
+          <!-- Email -->
           <div class="form-group">
-            <label for="nome">Nome e cognome</label>
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              placeholder="Mario Rossi"
-              autocomplete="name"
-              aria-describedby="nome-error"
-              aria-required="true"
-            />
-            <span class="field-error" id="nome-error" role="alert">Inserisci il tuo nome (minimo 2 caratteri).</span>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="emailAddress" placeholder="tua@email.com" required>
           </div>
-
+          
+          <!-- Nome e Cognome -->
+          <div class="form-group">
+            <label for="nome">Nome e Cognome</label>
+            <input type="text" id="nome" name="entry.2019563438" placeholder="Mario Rossi" required>
+          </div>
+          
           <!-- Telefono -->
           <div class="form-group">
-            <label for="telefono">Numero di telefono</label>
-            <input
-              type="tel"
-              id="telefono"
-              name="telefono"
-              placeholder="+39 334 000 0000"
-              autocomplete="tel"
-              aria-describedby="telefono-error"
-              aria-required="true"
-            />
-            <span class="field-error" id="telefono-error" role="alert">Inserisci un numero di telefono valido.</span>
+            <label for="telefono">Numero di Telefono</label>
+            <input type="tel" id="telefono" name="entry.1224036341" placeholder="+39 333 000 0000" required>
           </div>
-
+          
           <!-- Data -->
           <div class="form-group">
             <label for="data">Data</label>
-            <input
-              type="date"
-              id="data"
-              name="data"
-              aria-describedby="data-error"
-              aria-required="true"
-            />
-            <span class="field-error" id="data-error" role="alert">Seleziona una data valida (non nel passato).</span>
+            <input type="date" id="data" name="entry.146428787" required>
           </div>
-
+          
           <!-- Ora -->
           <div class="form-group">
-            <label for="ora">Fascia oraria</label>
-            <select id="ora" name="ora" aria-describedby="ora-error" aria-required="true">
-              <option value="">Seleziona orario</option>
-              <optgroup label="Pranzo">
-                <option value="12:00">12:00</option>
-                <option value="12:30">12:30</option>
-                <option value="13:00">13:00</option>
-                <option value="13:30">13:30</option>
-                <option value="14:00">14:00</option>
-              </optgroup>
-              <optgroup label="Cena">
-                <option value="19:00">19:00</option>
-                <option value="19:30">19:30</option>
-                <option value="20:00">20:00</option>
-                <option value="20:30">20:30</option>
-                <option value="21:00">21:00</option>
-                <option value="21:30">21:30</option>
-              </optgroup>
-            </select>
-            <span class="field-error" id="ora-error" role="alert">Seleziona una fascia oraria.</span>
+            <label for="ora">Ora</label>
+            <input type="time" id="ora" name="entry.1810599303" required>
           </div>
-
-          <!-- N° persone -->
+          
+          <!-- Persone -->
           <div class="form-group">
-            <label for="persone">Numero di persone</label>
-            <select id="persone" name="persone" aria-describedby="persone-error" aria-required="true">
-              <option value="">Seleziona</option>
-              <option value="1">1 persona</option>
-              <option value="2">2 persone</option>
-              <option value="3">3 persone</option>
-              <option value="4">4 persone</option>
-              <option value="5">5 persone</option>
-              <option value="6">6 persone</option>
-              <option value="7">7 persone</option>
-              <option value="8">8 persone</option>
-              <option value="9-12">9–12 persone</option>
-              <option value="13+">Più di 12 (contattaci)</option>
-            </select>
-            <span class="field-error" id="persone-error" role="alert">Indica il numero di persone.</span>
+            <label for="persone">Numero di Persone</label>
+            <input type="number" id="persone" name="entry.404001461" min="1" placeholder="Es. 2" required>
           </div>
-
-          <!-- Note -->
+          
+          <!-- Intolleranze -->
           <div class="form-group form-group--full">
-            <label for="note">Note aggiuntive <span style="color:var(--yanagi-700);font-weight:300">(facoltativo)</span></label>
-            <textarea
-              id="note"
-              name="note"
-              placeholder="Allergie, richieste particolari…"
-              aria-label="Note aggiuntive per la prenotazione"
-            ></textarea>
+            <label for="intolleranze">Intolleranze (facoltativo)</label>
+            <textarea id="intolleranze" name="entry.460122780" placeholder="Segnala eventuali allergie o intolleranze..."></textarea>
           </div>
-
+          
           <!-- Submit -->
           <div class="form-submit-wrap">
-            <button type="submit" class="btn btn--primary" id="submit-btn">
-              Prenota ora
-            </button>
+            <button type="submit" class="btn btn--primary" id="submit-btn">Prenota ora</button>
             <p class="form-phone-note">
               Oppure chiamaci:
               <a href="tel:09841452953" aria-label="Chiama il ristorante">0984 145 2953</a>
             </p>
           </div>
-
         </form>
+        
+        <!-- Hidden iframe to handle Google Form submit without page redirect -->
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { showSuccess(); }"></iframe>
 
         <div class="form-success" id="form-success" role="status" aria-live="polite">
-          ✓ &nbsp; Richiesta inviata! Ti contatteremo a breve per confermare la prenotazione.
+          ✓ &nbsp; Prenotazione inviata! Ti contatteremo a breve per confermare il tavolo.
         </div>
+
 
       </div>
     </section>
@@ -531,6 +468,22 @@
       </nav>
     </div>
   </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="https://wa.me/393396337600?text=Salve,%20vorrei%20prenotare%20un%20tavolo%20al%20Tokyo%20Sushi"
+    class="whatsapp-fab"
+    id="whatsapp-fab"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Prenota su WhatsApp"
+  >
+    <!-- Official WhatsApp SVG logo -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="#fff" d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.504 3.58 1.383 5.067L2 22l5.083-1.363A9.94 9.94 0 0 0 12.001 22C17.523 22 22 17.522 22 12S17.523 2 12.001 2zm0 1.8A8.2 8.2 0 0 1 20.2 12a8.2 8.2 0 0 1-8.199 8.2 8.17 8.17 0 0 1-4.21-1.162l-.302-.18-3.016.808.822-2.944-.196-.314A8.163 8.163 0 0 1 3.8 12 8.2 8.2 0 0 1 12.001 3.8zm-2.3 3.9c-.2 0-.524.075-.8.375-.274.3-1.05 1.025-1.05 2.5s1.074 2.9 1.224 3.1c.15.2 2.1 3.225 5.126 4.375 2.524.975 3.025.775 3.575.725.55-.05 1.774-.725 2.025-1.424.25-.7.25-1.3.175-1.425-.075-.125-.274-.2-.574-.35-.3-.15-1.775-.875-2.05-.975-.275-.1-.474-.15-.674.15-.2.3-.774.975-.95 1.175-.175.2-.35.224-.649.075-.3-.15-1.263-.465-2.407-1.485-.888-.795-1.488-1.774-1.663-2.074-.175-.3-.018-.463.132-.612.134-.134.3-.35.45-.524.148-.175.198-.3.297-.5.1-.2.05-.375-.025-.524-.075-.15-.657-1.6-.913-2.2-.235-.565-.48-.49-.658-.498l-.56-.01z"/>
+    </svg>
+    <span class="whatsapp-fab-label">Prenota su WhatsApp</span>
+  </a>
 
   <script src="scripts.js"></script>
 </body>
